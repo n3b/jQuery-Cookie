@@ -1,12 +1,12 @@
-/**
- * jQuery Cookie plugin 1.0
+/*
+ * jQuery Cookie Plugin 1.1
+ * https://github.com/blueimp/jQuery-Cookie
  *
- * Copyright 2010, Sebastian Tschan, AQUANTUM
+ * Copyright 2010, Sebastian Tschan
+ * https://blueimp.net
+ *
  * Licensed under the MIT license:
  * http://creativecommons.org/licenses/MIT/
- *
- * https://blueimp.net
- * http://www.aquantum.de
  *
  * Based on
  * Cookie plugin
@@ -18,6 +18,7 @@
 /*global jQuery */
 
 (function ($) {
+    'use strict';
     
     var getCookie = function (key, options) {
             options = options || {};
