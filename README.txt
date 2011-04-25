@@ -42,6 +42,10 @@ Create cookie with multiple settings:
 Delete cookie:
     $.cookie('name', null);
 
+Requirements
+------------
+jQuery v. 1.4+
+
 License
 -------
 Released under the MIT license:
