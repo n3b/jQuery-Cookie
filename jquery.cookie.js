@@ -1,5 +1,5 @@
 /*
- * jQuery Cookie Plugin 1.1
+ * jQuery Cookie Plugin 1.2
  * https://github.com/blueimp/jQuery-Cookie
  *
  * Copyright 2010, Sebastian Tschan
@@ -22,17 +22,31 @@
     
     var getCookie = function (key, options) {
             options = options || {};
-            var result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie),
+            var result = new RegExp('(?:^|; )' + encodeURIComponent(key) +
+                    '=([^;]*)').exec(document.cookie),
                 decode = options.raw ? String : decodeURIComponent;
-            return result ? decode(result[1]) : null;
+            return result !== null ? decode(result[1]) : null;
+        },
+        
+        getCookies = function (options) {
+            var cookies = document.cookie.split('; '),
+                list = [];
+            $.each(cookies, function (index, cookie) {
+                var name = cookie.split('=')[0];
+                if (name) {
+                    list.push({name: name, value: getCookie(name, options)});
+                }
+            });
+            return list;
         },
 
         setCookie = function (key, value, options) {
             options = options || {};
             if (value === null) {
                 options.expires = -1;
+                value = '';
             }
-            if (typeof options.expires === 'number') {
+            if ($.type(options.expires) === 'number') {
                 var days = options.expires;
                 options.expires = new Date();
                 options.expires.setDate(options.expires.getDate() + days);
@@ -48,7 +62,10 @@
         };
     
     $.cookie = function (key, value, options) {
-        if (arguments.length > 1 && (value === null || typeof value !== 'object')) {
+        if (arguments.length === 0 || $.type(key) === 'object') {
+            return getCookies(key);
+        }
+        if (arguments.length > 1 && (value === null || $.type(value) !== 'object')) {
             return setCookie(key, value, options);
         }
         return getCookie(key, value);
