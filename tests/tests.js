@@ -9,7 +9,7 @@
  * http://creativecommons.org/licenses/MIT/
  */
 
-/*jslint browser: true, regexp: false */
+/*jslint browser: true, regexp: false, unparam: true */
 /*global $, module, test, strictEqual, deepEqual */
 
 $(function () {

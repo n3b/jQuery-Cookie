@@ -14,7 +14,7 @@
  * http://plugins.jquery.com/files/jquery.cookie.js.txt
  */
 
-/*jslint browser: true */
+/*jslint browser: true, unparam: true */
 /*global jQuery */
 
 (function ($) {
