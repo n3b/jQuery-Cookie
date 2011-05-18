@@ -111,7 +111,7 @@ $(function () {
     });
     
     test('Returning created cookie string', function () {
-        strictEqual($.cookie('name', 'value'), 'name=value');
+        strictEqual($.cookie('name', 'value'), 'name=value; path=/');
     });
         
     test('Creating cookie with expiration date', function () {
@@ -119,7 +119,7 @@ $(function () {
         date.setDate(date.getDate() + 7);
         strictEqual(
             $.cookie('name', 'value', {expires: date}),
-            'name=value; expires=' + date.toUTCString()
+            'name=value; expires=' + date.toUTCString() + '; path=/'
         );
     });
     
@@ -143,14 +143,14 @@ $(function () {
     test('Creating cookie with domain setting', function () {
         strictEqual(
             $.cookie('name', 'value', {domain: location.hostname}),
-            'name=value; domain=' + location.hostname
+            'name=value; path=/; domain=' + location.hostname
         );
     });
     
     test('Creating cookie with secure setting', function () {
         strictEqual(
             $.cookie('name', 'value', {secure: true}),
-            'name=value; secure'
+            'name=value; path=/; secure'
         );
     });
     
@@ -173,7 +173,7 @@ $(function () {
     module('Delete', lifecycle);
     
     test('Deleting cookie', function () {
-        document.cookie = 'name=value';
+        document.cookie = 'name=value; path=/';
         $.cookie('name', null);
         strictEqual(document.cookie, '');
     });

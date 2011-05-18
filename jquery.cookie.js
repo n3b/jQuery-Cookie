@@ -1,5 +1,5 @@
 /*
- * jQuery Cookie Plugin 1.2
+ * jQuery Cookie Plugin 1.3
  * https://github.com/blueimp/jQuery-Cookie
  *
  * Copyright 2010, Sebastian Tschan
@@ -14,7 +14,7 @@
  * http://plugins.jquery.com/files/jquery.cookie.js.txt
  */
 
-/*jslint browser: true, unparam: true */
+/*jslint browser: true */
 /*global jQuery */
 
 (function ($) {
@@ -42,6 +42,9 @@
 
         setCookie = function (key, value, options) {
             options = options || {};
+            if ($.type(options.path) === 'undefined') {
+                options.path = '/';
+            }
             if (value === null) {
                 options.expires = -1;
                 value = '';
