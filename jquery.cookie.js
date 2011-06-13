@@ -1,5 +1,5 @@
 /*
- * jQuery Cookie Plugin 1.3
+ * jQuery Cookie Plugin 1.3.1
  * https://github.com/blueimp/jQuery-Cookie
  *
  * Copyright 2010, Sebastian Tschan
@@ -14,8 +14,8 @@
  * http://plugins.jquery.com/files/jquery.cookie.js.txt
  */
 
-/*jslint browser: true */
-/*global jQuery */
+/*jslint unparam: true */
+/*global document, jQuery */
 
 (function ($) {
     'use strict';

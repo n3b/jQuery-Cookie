@@ -1,5 +1,5 @@
 /*
- * jQuery Cookie Plugin Tests 1.0
+ * jQuery Cookie Plugin Tests 1.0.1
  * https://github.com/blueimp/jQuery-Cookie
  *
  * Copyright 2010, Sebastian Tschan
@@ -9,8 +9,8 @@
  * http://creativecommons.org/licenses/MIT/
  */
 
-/*jslint browser: true, regexp: false, unparam: true */
-/*global $, module, test, strictEqual, deepEqual */
+/*jslint regexp: true, unparam: true */
+/*global document, location, $, module, test, strictEqual, deepEqual */
 
 $(function () {
     'use strict';
